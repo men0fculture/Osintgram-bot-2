@@ -105,6 +105,8 @@ def _quit():
 
 signal.signal(signal.SIGINT, signal_handler)
 if is_windows:
+    import collections
+    collections.Callable = collections.abc.Callable
     pyreadline.Readline().parse_and_bind("tab: complete")
     pyreadline.Readline().set_completer(completer)
 else:
