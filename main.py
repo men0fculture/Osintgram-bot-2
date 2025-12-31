@@ -10,13 +10,7 @@ from src.hikercli import HikerCLI, hk
 from src.Osintgram import Osintgram
 
 is_windows = False
-
-try:
-    import gnureadline  
-except: 
-    is_windows = True
-    import pyreadline
-
+    import readline  
 
 def printlogo():
     pc.printout(artwork.ascii_art, pc.YELLOW)
@@ -183,8 +177,8 @@ while True:
             pyreadline.Readline().parse_and_bind("tab: complete")
             pyreadline.Readline().set_completer(completer)
         else:
-            gnureadline.parse_and_bind("tab: complete")
-            gnureadline.set_completer(completer)
+            readline.parse_and_bind("tab: complete")
+            readline.set_completer(completer)
         pc.printout("Run a command: ", pc.YELLOW)
         cmd = input()
 
